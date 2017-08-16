@@ -1,22 +1,78 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Health Tracker</title>
-		<meta charset="utf-8">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1">
+	<title>Health Tracker</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<section id="health-tracker" class="row">
+			<header class="header">
+				<h1 class="text-center">Health Tracker App</h1>
+				<section id="search-ui">
+					<input type="text" id="search-bar" class="bottom-spacing" placeholder="Search for foods and drinks..." autofocus>
+					<button id="search-btn" class="btn bottom-spacing">Search</button>
+					<button id="clear-btn" class="btn bottom-spacing">Clear Results</button>
+				</section>
+			</header>
+			<section id="results" class="col-md-6">
+				<h3 class="text-center">Search Results</h3>
+				<table id="search-results" class="table-responsive fullspan">
 
-	</head>
-	<body>
-	<h1>Health Tracker</h1>
-	<nav>
-		<input type="text" name="search" placeholder="Search..">
-	</nav>
-	<div class="options">
+				</table>
+			</section>
+			<section id="user-list" class="col-md-6">
+				<h3 class="text-center">Selected</h3>
+				<table id="user-select" class="table-responsive fullspan">
 
-
+				</table>
+				<section id="stats" class="text-center"></section>
+				<section id="chart" class="text-center">
+					<h3>Your Calorie Intake</h3>
+						<h4>This Week</h4>
+						<canvas id="bar-chart-weekly" width="320" height="320"></canvas>
+				</section>
+			</section>
+		</section>
 
 	</div>
-	</body>
+
+	<!-- search results template -->
+	<script type="text/template" id="search-results-template">
+
+			<td><%= name %></td>
+			<td><%= brand %></td>
+			<td><%= calories %> kcal</td>
+			<td><button class="add btn">Add</button></td>
+
+	</script>
+
+	<!-- user select template -->
+	<script type="text/template" id="user-select-template">
+
+			<td><%= name %></td>
+			<td><%= brand %></td>
+			<td><%= calories %> kcal</td>
+			<td><button class="destroy btn">Remove</button></td>
+
+	</script>
+
+
+	<!-- food stats template -->
+	<script type="text/template" id="stats-template">
+		<p id="item-count"><strong> <%= remaining %> </strong> <%= remaining === 1 ? 'food item' : 'food items' %> on the list</p>
+		<p class="selected">Total Calories: <%= totalCalories %> kcal</p>
+	</script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.2/backbone-min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.16/backbone.localStorage-min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
+	<script src="js/main.js"></script>
+
+</body>
 </html>
