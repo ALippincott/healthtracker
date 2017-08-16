@@ -191,7 +191,7 @@ app.AppView = Backbone.View.extend({
 	getJson: function() {
 		$('#search-results').empty();
 		var searchTerm = $('#search-bar').val()
-		var nutrionixUrl = 'https://api.nutritionix.com/v1_1/search/' + searchTerm + '?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=7609e232&appKey=0a249bb0ad1fc18455fde567706ebba7'
+		var nutrionixUrl = 'https://api.nutritionix.com/v1_1/search/' + searchTerm + '?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=462dca69&appKey=c1f740d4609f3682d195c7a514340e0a'
 		$.ajax({
 			method: 'GET',
 			url: nutrionixUrl,
